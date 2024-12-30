@@ -11,12 +11,17 @@ export const ShoppingCartProvider = ({ children }) => {
 
   //estado para abrir y cerrar el modal de detalle de CheckoutSiteMenu
   const [iCheckOutSiteMenu, setIsiCheckOutSiteMenu] = useState(false);
+  const [iCheckOutSiteClose, setIsiCheckOutSiteClose] = useState(true);
 
   //estado para guardar el detalle del producto
   const [productDetail, setProductDetail] = useState({});
 
   //estado para agregar productos al carrito
+  //Recuerda que dentro de este estado se guardan los productos guardaddos
   const [cartProducts, setCartProducts] = useState([]);
+
+  // Shopping Cart - Order
+  const [orderProducts, setOrderProducts] = useState([]);
 
   const increment = () => {
     setCounter(counter + 1);
@@ -26,6 +31,7 @@ export const ShoppingCartProvider = ({ children }) => {
     setIsProductDetailOpen(!isProductDetailOpen);
   };
 
+  //Para abrir myOrder
   const toggleCheckOutSiteMenu = () => {
     setIsiCheckOutSiteMenu(!iCheckOutSiteMenu);
   };
@@ -44,6 +50,9 @@ export const ShoppingCartProvider = ({ children }) => {
         iCheckOutSiteMenu,
         setIsiCheckOutSiteMenu,
         toggleCheckOutSiteMenu,
+        setIsiCheckOutSiteClose,
+        orderProducts,
+        setOrderProducts,
       }}
     >
       {children}

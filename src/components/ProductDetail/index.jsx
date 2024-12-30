@@ -32,19 +32,17 @@ const ProductDetail = () => {
               alt={productDetail.title}
             />
           </figure>
-          <p>
-            <div className="flex flex-col p-4 mb-2">
-              <span className="font-bold text-lg mb-2">
-                Price: ${productDetail.price}
-              </span>
-              <span className="font-light text-md ">
-                Title: {productDetail.title}
-              </span>
-              <span className="font-light text-xs">
-                Description: {productDetail.description}
-              </span>
-            </div>
-          </p>
+          <div className="flex flex-col p-4 mb-2">
+            <span className="font-bold text-lg mb-2">
+              Price: ${productDetail.price}
+            </span>
+            <span className="font-light text-md ">
+              Title: {productDetail.title}
+            </span>
+            <span className="font-light text-xs">
+              Description: {productDetail.description}
+            </span>
+          </div>
         </aside>
       )}
     </>
