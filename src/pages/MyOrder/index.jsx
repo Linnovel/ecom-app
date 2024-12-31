@@ -2,17 +2,28 @@ import React, { useContext } from "react";
 import Layout from "../../components/Layout";
 import { ShoppingCartContext } from "../../Context";
 import OrderCard from "../../components/OrderCard";
+import { ChevronLeftIcon } from "@heroicons/react/24/solid";
+import { Link, useParams } from "react-router-dom";
 
 const MyOrder = () => {
   const { orderProducts } = useContext(ShoppingCartContext);
-  console.log("Order Products:", orderProducts);
-  const lastOrder = orderProducts[orderProducts.length - 1];
+  const currentPath = window.location.pathname;
+  let indexProduct = currentPath.substring(currentPath.lastIndexOf("/") + 1);
+  // console.log("indexProduct", indexProduct);
+  if (indexProduct !== "my-order") indexProduct = orderProducts?.length - 1;
+  // console.log("Order Products:", orderProducts);
+  const lastOrder = orderProducts[indexProduct];
 
   return (
     <>
       <Layout>
         <div className="px-6">
-          <h2 className="text-2xl font-bold">My Order</h2>
+          <div className=" flex justify-between items-center mb-4">
+            <Link to="/my-orders">
+              <ChevronLeftIcon className="h-6 w-6" />
+            </Link>
+            <h1>My Order</h1>
+          </div>
           {orderProducts.length === 0 ? (
             <p className="text-center text-lg font-medium">Cart is empty</p>
           ) : lastOrder.products && lastOrder.products.length > 0 ? (

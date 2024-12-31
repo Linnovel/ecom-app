@@ -4,7 +4,7 @@ import { ShoppingCartContext } from "../../Context";
 import { ShoppingBagIcon } from "@heroicons/react/24/solid";
 
 const Navbar = () => {
-  const context = useContext(ShoppingCartContext);
+  const { setSearchByCategory, counter } = useContext(ShoppingCartContext);
 
   return (
     <>
@@ -23,6 +23,7 @@ const Navbar = () => {
           </li>
           <li>
             <NavLink
+              onClick={() => setSearchByCategory()}
               className={({ isActive, isPending }) =>
                 isPending ? "pending" : isActive ? "active" : ""
               }
@@ -33,6 +34,7 @@ const Navbar = () => {
           </li>
           <li>
             <NavLink
+              onClick={() => setSearchByCategory("clothes")}
               className={({ isActive, isPending }) =>
                 isPending ? "pending" : isActive ? "active" : ""
               }
@@ -43,6 +45,7 @@ const Navbar = () => {
           </li>
           <li>
             <NavLink
+              onClick={() => setSearchByCategory("electronics")}
               className={({ isActive, isPending }) =>
                 isPending ? "pending" : isActive ? "active" : ""
               }
@@ -53,6 +56,7 @@ const Navbar = () => {
           </li>
           <li>
             <NavLink
+              onClick={() => setSearchByCategory("fornitures")}
               className={({ isActive, isPending }) =>
                 isPending ? "pending" : isActive ? "active" : ""
               }
@@ -63,6 +67,7 @@ const Navbar = () => {
           </li>
           <li>
             <NavLink
+              onClick={() => setSearchByCategory("toys")}
               className={({ isActive, isPending }) =>
                 isPending ? "pending" : isActive ? "active" : ""
               }
@@ -73,6 +78,7 @@ const Navbar = () => {
           </li>
           <li>
             <NavLink
+              onClick={() => setSearchByCategory("others")}
               className={({ isActive, isPending }) =>
                 isPending ? "pending" : isActive ? "active" : ""
               }
@@ -120,7 +126,7 @@ const Navbar = () => {
           <li>
             <div className="flex ">
               <ShoppingBagIcon className="size-6 text-black" />
-              {context.counter}
+              {counter}
             </div>
           </li>
         </ul>

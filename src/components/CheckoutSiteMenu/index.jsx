@@ -46,7 +46,7 @@ const CheckOutSiteMenu = () => {
       {iCheckOutSiteMenu && (
         <aside className="checkout-site-menu mx-4  mt-8  flex flex-col fixed bg-white right-0 border border-black rounded">
           <div className="flex justify-between p-4 items-cente">
-            <h2 className="font-medium text-xl ">My Order</h2>
+            <h2 className="font-bold text-2xl ">My Order</h2>
             <div>
               {/* Close ICON X  */}
 
